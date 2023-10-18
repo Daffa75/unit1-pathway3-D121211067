@@ -47,6 +47,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
+                    CardContent(name = "Daffa Yuslim", title = "Junior Programmer", email = "andidaffa75@gmail.com", instagram = "@daffayuslim", linkedin = "daffayuslim")
                 }
             }
         }
@@ -76,7 +77,7 @@ fun CardHeader (name: String, title: String, modifier: Modifier = Modifier){
         )
         Text(
             text = title,
-            fontSize = 18.sp,
+            fontSize = 16.sp,
             color = Color.White,
             modifier = Modifier
                 .align(alignment = Alignment.CenterHorizontally)
@@ -92,20 +93,10 @@ fun CardFooter (email: String, linkedin: String, instagram: String, modifier: Mo
     val logoModifier = Modifier
         .size(24.dp)
 
-    Column (verticalArrangement = Arrangement.spacedBy(8.dp)) {
-        Row (horizontalArrangement = Arrangement.spacedBy(8.dp)) {
-            Image(
-                painter = emailIcon,
-                contentDescription = null,
-                modifier = logoModifier,
-                colorFilter = ColorFilter.tint(Color.White),
-            )
-            Text(
-                text = email,
-                fontSize = 16.sp,
-                color = Color.White
-            )
-        }
+    Column (
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(14.dp)
+    ) {
         Row (horizontalArrangement = Arrangement.spacedBy(8.dp)) {
             Image(
                 painter = instagramIcon,
@@ -132,6 +123,19 @@ fun CardFooter (email: String, linkedin: String, instagram: String, modifier: Mo
                 color = Color.White
             )
         }
+        Row (horizontalArrangement = Arrangement.spacedBy(8.dp)) {
+            Image(
+                painter = emailIcon,
+                contentDescription = null,
+                modifier = logoModifier,
+                colorFilter = ColorFilter.tint(Color.White),
+            )
+            Text(
+                text = email,
+                fontSize = 16.sp,
+                color = Color.White
+            )
+        }
     }
 }
 
@@ -146,13 +150,13 @@ fun CardContent (name: String, title: String, email: String, instagram: String, 
             contentScale = ContentScale.Crop
         )
         Column (modifier = Modifier
-            .padding(vertical = 64.dp)
+            .padding(vertical = 80.dp)
             .fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.SpaceBetween
         ) {
             Column {
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(96.dp))
                 CardHeader(name = name, title = title)
             }
             CardFooter(email = email, linkedin = linkedin, instagram = instagram)
